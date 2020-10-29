@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let o = {
+            name: 'jim',
+            age: 19,
+            gender: '男'
+        }
+
+        // 简化后的版本
+        function defineReactive(target, key, value, enumerable) {
+            // 函数内部就是一个局部作用域, 这个 value 就只在函数内使用的变量 ( 闭包 )
+            Object.defineProperty(target, key, {
+                configurable: true,
+                enumerable: !!enumerable,
+                get() {
+                    console.log(`读取 o 的 ${key} 属性`); // 额外
+                    return value
+                },
+                set(newVal) {
+                    console.log(`设置 o 的 ${key} 属性为: ${newVal}`); // 额外
+                    value = newVal
+                }
+            })
+        }
+        let keys = Object.keys(o)
+        keys.forEach(key => {
+            defineReactive(o, key, o[key], true)
+        })
+
+    </script>
+</body>
+
+</html>
