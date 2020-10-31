@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div">
+        <button>点击</button>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+    <script>
+        function on(eventType, element, selector, fn) {
+            if (!(element instanceof Element)) {
+                element = document.querySelector(element)
+            }
+            element.addEventListener(eventType, (e) => {
+                const t = e.target
+                if (t.matches(selector)) {
+                    fn(e)
+                }
+            })
+        }
+        on('click', '#div', 'button', () => {
+            console.log('button被点击了')
+        })
+
+        let ul = document.querySelector('ul')
+        ul.addEventListener('click', function (e) {
+            let tagName = e.target.tagName.toLowerCase()
+            if (tagName === 'li') {
+                //some code
+                console.log('li被点击了')
+            }
+        })
+    </script>
+</body>
+
+</html>
