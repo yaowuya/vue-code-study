@@ -13,7 +13,7 @@
 1. 编写 页面 模板 
    1. 直接在 HTML 标签中写 标签
    2. 使用 template
-   3. 使用 单文件 ( <template /> )
+   3. 使用 单文件 (` <template />` )
 2. 创建 Vue 的实例
    - 在 Vue 的构造函数中提供: data, methods, computed, watcher, props, ...
 3. 将 Vue 挂载到 页面中 ( mount )

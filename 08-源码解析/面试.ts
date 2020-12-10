@@ -5,7 +5,7 @@
  * makeMap 生成一个带有缓存的 函数, 用于判断 数据是否是缓存中的数据, 
  * 代表 判断字符串 ( 标签名 ) 是否为内置的 HTML 标签
  */
-export function makeMap (
+export function makeMap(
   str: string,
   expectsLowerCase?: boolean
 ): (key: string) => true | void {
@@ -53,7 +53,7 @@ export const hyphenate = cached((str: string): string => {
  * Objects from primitive values when we know the value
  * is a JSON-compliant type.
  */
-export function isObject(obj: mixed): boolean %checks {
+export function isObject(obj: mixed): boolean % checks {
   return obj !== null && typeof obj === "object";
 }
 
@@ -73,7 +73,7 @@ export function isObject(obj: mixed): boolean %checks {
  * Check if two values are loosely equal - that is,
  * if they are plain objects, do they have the same shape?
  */
-export function looseEqual (a: any, b: any): boolean {
+export function looseEqual(a: any, b: any): boolean {
   if (a === b) return true
   const isObjectA = isObject(a)
   const isObjectB = isObject(b)
@@ -87,7 +87,7 @@ export function looseEqual (a: any, b: any): boolean {
         })
       } else if (a instanceof Date && b instanceof Date) {
         return a.getTime() === b.getTime() // 单独处理 Date 类型, 时间戳应该是一样的
-      } else if ( 0 ) {
+      } else if (0) {
         // 如果需要考虑其它类型, 添加 if 即可
       } else if (!isArrayA && !isArrayB) {
         const keysA = Object.keys(a)
@@ -116,7 +116,7 @@ export function looseEqual (a: any, b: any): boolean {
 /**
  * Ensure a function is called only once.
  */
-export function once (fn: Function): Function {
+export function once(fn: Function): Function {
   let called = false // 是否调用过
   return function () {
     if (!called) {
